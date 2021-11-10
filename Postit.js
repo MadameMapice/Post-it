@@ -61,5 +61,31 @@ class Postit {
         elem.innerHTML = this.texte;
 
 
+
+        let menu=document.createElement("div")
+        menu.className="menu"
+            elem.appendChild(menu)
+        
+            let buttom=document.createElement("div")
+            menu.appendChild(buttom)
+            buttom.className="fas fa-expand-arrows-alt"
+
+            let buttom1=document.createElement("div")
+            menu.appendChild(buttom1)
+            buttom1.className="fas fa-expand-alt"
+
+            let buttom2=document.createElement("div")
+            menu.appendChild(buttom2)
+            buttom2.className="fas fa-font"
+
+            let buttom3=document.createElement("div")
+            menu.appendChild(buttom3)
+            buttom3.className="fas fa-palette"
+
+            let buttom4=document.createElement("div")
+            menu.appendChild(buttom4)
+            buttom4.className="fas fa-window-close"
+
+
     }
 }

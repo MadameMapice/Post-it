@@ -12,7 +12,7 @@
 
 body{
     background-color:#E5CEF6 ;
-    border: 3px purple solid;
+    border: 3px rgb(63, 32, 63) solid;
 }
 
 h1{
@@ -29,7 +29,7 @@ h1{
     justify-content: space-around;
     height: 100vh;
     width: 20%;
-    border-right: 3px purple solid;
+    border-right: 3px rgb(63, 32, 63)solid;
 }
 
 .bg>div{
@@ -41,12 +41,26 @@ h1{
 
 .pink{
     background-color: pink;
+    box-shadow: 5px 5px 5px 5px rgb(241, 81, 107);
 }
 
 .purple{
-    background-color: purple;
+    background-color: lightblue;
+    box-shadow: 5px 5px 5px 5px rgb(47, 193, 241);
 }
 
 .white{
     background-color: white;
+    box-shadow: 5px 5px 5px 5px rgb(114, 114, 114);
+}
+
+.menu{
+   display: flex;
+   justify-content: space-around;
+   
+}
+
+.fas {
+    margin: 10px auto;
+    color: black;
 }
