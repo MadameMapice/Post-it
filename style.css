@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family:"cottom";
+    src: url(Cotton\ Butter.ttf);
+}
+
+
+body{
+    background-color:#E5CEF6 ;
+}
+
+h1{
+    font-family: "cottom";
+    text-align: center;
+    color: rgb(63, 32, 63);
+}
+
+.bg{
+    background: url(./pexels-william-jesús-casique-toro-2744616.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    width: 20%;
+}
+
+.bg>div{
+    width: 80%;
+    height: 30%;
+    margin: 10px auto;
+
+}
+
+.pink{
+    background-color: pink;
+}
+
+.purple{
+    background-color: purple;
+}
+
+.white{
+    background-color: white;
+}
