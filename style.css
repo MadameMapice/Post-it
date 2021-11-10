@@ -57,8 +57,19 @@ h1{
 .menu{
    display: flex;
    justify-content: space-around;
+   position: absolute;
+   width: 100%;
+   bottom: 5px;
+
    
 }
+
+/* .postit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
 
 .fas {
     margin: 10px auto;

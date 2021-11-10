@@ -50,6 +50,7 @@ class Postit {
          
         
         elem.id="postit"+this.id
+        // elem.className="postit"
         // style de CSS
         elem.style.position ="fixed"; 
         elem.style.left = this.x+"px"; 
@@ -69,22 +70,52 @@ class Postit {
             let buttom=document.createElement("div")
             menu.appendChild(buttom)
             buttom.className="fas fa-expand-arrows-alt"
+            buttom.addEventListener("click",()=>{ // pour donner des fonctions
+                this.deplacement(400,400)
+                this.affichePostit()
+            })
 
             let buttom1=document.createElement("div")
             menu.appendChild(buttom1)
             buttom1.className="fas fa-expand-alt"
+            buttom1.addEventListener("click",()=>{ // pour donner des fonctions
+                this.redimensionement(400,400)
+                this.affichePostit()
+            })
 
             let buttom2=document.createElement("div")
             menu.appendChild(buttom2)
             buttom2.className="fas fa-font"
+            buttom2.addEventListener("click",()=>{ // pour donner des fonctions
+                this.changertext("test")
+                this.affichePostit()
+            })
 
             let buttom3=document.createElement("div")
             menu.appendChild(buttom3)
             buttom3.className="fas fa-palette"
+            buttom3.addEventListener("click",()=>{ // pour donner des fonctions
+            
+            if(this.couleur=="pink"){
+              this.changercouleur("lightblue")  
+            }    
+            else if(this.couleur=="lightblue"){
+                this.changercouleur("white")
+            }
+            else if(this.couleur=="white"){
+                this.changercouleur("pink")
+            }
+                this.affichePostit()
+            })
+            
 
             let buttom4=document.createElement("div")
             menu.appendChild(buttom4)
             buttom4.className="fas fa-window-close"
+            buttom4.addEventListener("click",()=>{ // pour donner des fonctions
+                this.fermer()
+                this.affichePostit()
+            })
 
 
     }
