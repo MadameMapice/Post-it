@@ -26,6 +26,6 @@ document.querySelector(".purple").addEventListener("click", ()=>{
 })
 
 document.querySelector(".white").addEventListener("click", ()=>{
-    tabPostit.push( new Postit (1500,600,300,300,"white","",tabPostit.length))
+    tabPostit.push( new Postit (1400,550,300,300,"white","",tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
 })

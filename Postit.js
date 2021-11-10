@@ -79,8 +79,16 @@ class Postit {
             menu.appendChild(buttom1)
             buttom1.className="fas fa-expand-alt"
             buttom1.addEventListener("click",()=>{ // pour donner des fonctions
-                this.redimensionement(400,400)
-                this.affichePostit()
+                // this.redimensionement(400,400)
+                // this.affichePostit()
+                if(this.largeur==300 && this.hauteur==300){
+                    this.redimensionement(400,400)  
+                  }    
+                  else if(this.largeur==400 && this.hauteur==400){
+                    this.redimensionement(300,300)
+                  }
+                
+                      this.affichePostit()
             })
 
             let buttom2=document.createElement("div")
@@ -107,7 +115,7 @@ class Postit {
             }
                 this.affichePostit()
             })
-            
+
 
             let buttom4=document.createElement("div")
             menu.appendChild(buttom4)
