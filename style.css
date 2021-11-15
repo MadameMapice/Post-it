@@ -42,6 +42,7 @@ h1{
 .pink{
     background-color: pink;
     box-shadow: 5px 5px 5px 5px rgb(241, 81, 107);
+   
 }
 
 .purple{
@@ -64,11 +65,13 @@ h1{
    
 }
 
-/* .postit{
-    display: flex;
+.postit{
+
+    padding: 10px;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
-} */
+    justify-content: space-between; */
+}
 
 
 .fas {

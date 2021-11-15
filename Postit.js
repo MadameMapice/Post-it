@@ -50,7 +50,7 @@ class Postit {
          
         
         elem.id="postit"+this.id
-        // elem.className="postit"
+        elem.className="postit"
         // style de CSS
         elem.style.position ="fixed"; 
         elem.style.left = this.x+"px"; 
@@ -62,11 +62,12 @@ class Postit {
         elem.innerHTML = this.texte;
 
 
-
+        // Bar Menu
         let menu=document.createElement("div")
         menu.className="menu"
             elem.appendChild(menu)
         
+            // Pour deplacer
             let buttom=document.createElement("div")
             menu.appendChild(buttom)
             buttom.className="fas fa-expand-arrows-alt"
@@ -77,7 +78,7 @@ class Postit {
             document.onmousemove=(event)=> {
                 pointerX=event.pageX;
                 pointerY=event.pageY;
-                this.deplacement(pointerX  -this.largeur +270,pointerY -this.hauteur +25)
+                this.deplacement(pointerX  -this.largeur +260,pointerY -this.hauteur +25)
                 this.affichePostit()
             }
 
@@ -87,7 +88,7 @@ class Postit {
                 document.onmousemove=()=>{}
             })
             
-                
+             // Pour redimensionement 
 
             let buttom1=document.createElement("div")
             menu.appendChild(buttom1)
@@ -105,14 +106,20 @@ class Postit {
                       this.affichePostit()
             })
 
+            // Pour le text
+
             let buttom2=document.createElement("div")
             menu.appendChild(buttom2)
             buttom2.className="fas fa-font"
             buttom2.addEventListener("click",()=>{ // pour donner des fonctions
-                this.changertext("test")
-                this.affichePostit()
+                numID = this.id
+
+           
+
             })
 
+
+            // Pour changer le color
             let buttom3=document.createElement("div")
             menu.appendChild(buttom3)
             buttom3.className="fas fa-palette"
@@ -131,6 +138,7 @@ class Postit {
             })
 
 
+            // Pour fermer
             let buttom4=document.createElement("div")
             menu.appendChild(buttom4)
             buttom4.className="fas fa-window-close"
