@@ -70,10 +70,24 @@ class Postit {
             let buttom=document.createElement("div")
             menu.appendChild(buttom)
             buttom.className="fas fa-expand-arrows-alt"
-            buttom.addEventListener("click",()=>{ // pour donner des fonctions
-                this.deplacement(400,400)
+            buttom.addEventListener("mousedown",()=>{ 
+                let pointerX=-1;
+                let pointerY=-1;
+
+            document.onmousemove=(event)=> {
+                pointerX=event.pageX;
+                pointerY=event.pageY;
+                this.deplacement(pointerX  -this.largeur +270,pointerY -this.hauteur +25)
                 this.affichePostit()
+            }
+
             })
+
+            buttom.addEventListener("mouseup",()=>{
+                document.onmousemove=()=>{}
+            })
+            
+                
 
             let buttom1=document.createElement("div")
             menu.appendChild(buttom1)
