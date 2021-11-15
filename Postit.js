@@ -78,7 +78,7 @@ class Postit {
             document.onmousemove=(event)=> {
                 pointerX=event.pageX;
                 pointerY=event.pageY;
-                this.deplacement(pointerX  -this.largeur +260,pointerY -this.hauteur +25)
+                this.deplacement(pointerX  -this.largeur +120,pointerY -this.hauteur +20)
                 this.affichePostit()
             }
 
@@ -93,28 +93,38 @@ class Postit {
             let buttom1=document.createElement("div")
             menu.appendChild(buttom1)
             buttom1.className="fas fa-expand-alt"
-            buttom1.addEventListener("click",()=>{ // pour donner des fonctions
-                // this.redimensionement(400,400)
-                // this.affichePostit()
-                if(this.largeur==300 && this.hauteur==300){
-                    this.redimensionement(400,400)  
-                  }    
-                  else if(this.largeur==400 && this.hauteur==400){
-                    this.redimensionement(300,300)
-                  }
+            buttom1.addEventListener("mousedown",(event)=>{ 
+
+                let posXOrig=event.clientX;
+                let posYOrig=event.clientY;
+                let largeurOrig = this.largeur;
+                let hauteurOrig=this.hauteur;
+
+                document.onmousemove=(event)=> {
+
                 
-                      this.affichePostit()
+
+                    this.redimensionement(event.clientX-posXOrig+largeurOrig,event.clientY-posYOrig+hauteurOrig)
+                    this.affichePostit()
+
+                }
+            
             })
+            elem.addEventListener("mouseup",()=>{
+                document.onmousemove=()=>{}
+            })
+
+
 
             // Pour le text
 
             let buttom2=document.createElement("div")
             menu.appendChild(buttom2)
-            buttom2.className="fas fa-font"
-            buttom2.addEventListener("click",()=>{ // pour donner des fonctions
+            buttom2.className="fas fa-keyboard"
+            buttom2.addEventListener("click",(event)=>{ // pour donner des fonctions
                 numID = this.id
 
-           
+                event.stopPropagation()
 
             })
 
@@ -138,13 +148,15 @@ class Postit {
             })
 
 
-            // Pour fermer
+            // Pour suprimer
             let buttom4=document.createElement("div")
             menu.appendChild(buttom4)
             buttom4.className="fas fa-window-close"
             buttom4.addEventListener("click",()=>{ // pour donner des fonctions
-                this.fermer()
-                this.affichePostit()
+
+                elem.parentNode.removeChild(elem)
+                suprimerPostit(this.id)
+               
             })
 
 

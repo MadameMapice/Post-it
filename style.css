@@ -57,17 +57,27 @@ h1{
 
 .menu{
    display: flex;
-   justify-content: space-around;
+   justify-content: flex-end;
    position: absolute;
    width: 100%;
    bottom: 5px;
+  left: 0;
 
    
+}
+.menu>*{
+margin:10px
+}
+.menu:hover{
+    cursor: pointer;
+
+
 }
 
 .postit{
 
-    padding: 10px;
+   padding: 10px;
+   word-break: break-all;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
@@ -75,6 +85,10 @@ h1{
 
 
 .fas {
-    margin: 10px auto;
+   
     color: black;
+}
+
+.fas:hover{
+    color: red;
 }

@@ -14,7 +14,7 @@
 
 let tabPostit =[]
 
-let numID = -1
+let numID = -1 // Chaque post it
 
 
 document.querySelector(".pink").addEventListener("click", ()=>{
@@ -32,7 +32,7 @@ document.querySelector(".white").addEventListener("click", ()=>{
     tabPostit[tabPostit.length-1].affichePostit()
 })
 
-document.addEventListener("keyup", (event)=>{
+document.addEventListener("keydown", (event)=>{
     if(numID>-1){
         console.log(event);
         if(event.key=="Backspace"){
@@ -49,8 +49,13 @@ document.addEventListener("keyup", (event)=>{
         else if (event.key=="Shift"){
         }
 
+        else if (event.key=="CapsLock"){
+
+        }
+
         else if (event.key=="Enter"){
-            tabPostit[numID].changertext(tabPostit[numID].texte.string(0,tabPostit[numID].texte.length+1))
+            let saute=tabPostit[numID].texte+"<br>"
+            tabPostit[numID].changertext(saute)
             tabPostit[numID].affichePostit()
         }
 
@@ -61,3 +66,15 @@ document.addEventListener("keyup", (event)=>{
         
     }
 })
+
+// Pour suprimer
+
+document.body.addEventListener("click",()=>{
+    numID=-1
+    // Chaque post it
+})
+
+
+function suprimerPostit(num){
+    tabPostit.splice(num,1)
+}
