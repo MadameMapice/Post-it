@@ -124,8 +124,8 @@ class Postit {
             buttom2.addEventListener("click",(event)=>{ // pour donner des fonctions
                 numID = this.id
 
-                event.stopPropagation()
-
+                event.stopPropagation() 
+                // Arreter l'evenement pour eviter de mettre le post it -1
             })
 
 

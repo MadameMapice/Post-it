@@ -67,13 +67,14 @@ document.addEventListener("keydown", (event)=>{
     }
 })
 
-// Pour suprimer
 
+// Arreter d'ecrire sur le post it
 document.body.addEventListener("click",()=>{
     numID=-1
-    // Chaque post it
+    
 })
 
+// Pour suprimer
 
 function suprimerPostit(num){
     tabPostit.splice(num,1)
