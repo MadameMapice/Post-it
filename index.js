@@ -17,10 +17,23 @@ let tabPostit =[]
 let numID = -1 // Chaque post it
 
 
-document.querySelector(".pink").addEventListener("click", ()=>{
-    tabPostit.push( new Postit (600,60,300,300,"pink","",tabPostit.length))
+document.querySelector(".pink").addEventListener("mousedown", (event)=>{
+    tabPostit.push( new Postit (event.clientX, event.clientY,300,300,"pink","",tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
-})
+
+    let pointerX=-1
+    let pointerY=-1
+
+    let affiche= tabPostit[tabPostit.length-1]
+
+    document.onmousemove=(event)=> {
+        pointerX=event.clientX;
+        pointerY=event.clientY;
+
+        affiche.deplacement(pointerX,pointerY)
+        affiche.affichePostit()
+}})
+
 
 document.querySelector(".purple").addEventListener("click", ()=>{
     tabPostit.push( new Postit (1000,350,300,300,"lightblue","",tabPostit.length))
