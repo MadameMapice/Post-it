@@ -21,6 +21,7 @@ document.querySelector(".pink").addEventListener("mousedown", (event)=>{
     tabPostit.push( new Postit (event.clientX, event.clientY,300,300,"pink","",tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
 
+
     let pointerX=-1
     let pointerY=-1
 
@@ -88,7 +89,11 @@ document.body.addEventListener("click",()=>{
 })
 
 // Pour suprimer
-
+/**
+ * supprime un postit du tableau
+ * 
+ * @param {number} num -  numero  du post it
+ */
 function suprimerPostit(num){
     tabPostit.splice(num,1)
 }

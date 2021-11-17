@@ -1,3 +1,7 @@
+/**
+ * @class Postit - classe representant un postit
+ */
+
 class Postit {
     x;
     y;
@@ -7,7 +11,16 @@ class Postit {
     texte;
     id;
 
-
+/**
+ * 
+ * @param {number} x - Position horizontal
+ * @param {number} y - Position Vertical
+ * @param {number} largeur - Taille de Postit
+ * @param {number} hauteur - Taille de Postit
+ * @param {string} couleur - Mettre le couleur au Post it
+ * @param {string} texte - Mettre le text
+ * @param {number} id - Numéro de Postit
+ */
     constructor(x,y,largeur,hauteur,couleur,texte,id){
 
         this.x=x;
@@ -20,11 +33,21 @@ class Postit {
 
     }
 
+
+/**
+ * Deplacer le Postit haut et bas
+ * @param {number} x 
+ * @param {number} y 
+ */
     deplacement(x,y){
         this.x=x;
         this.y=y;
     }
-
+/**
+ * Gérer les mesures de Postit
+ * @param {number} largeur 
+ * @param {number} hauteur 
+ */
     redimensionement(largeur,hauteur){
 
         this.largeur=largeur;
@@ -32,14 +55,27 @@ class Postit {
 
     }
 
+/**
+ * Gérer le texte
+ * @param {string} texte 
+ */
     changertext(texte){
         this.texte=texte;
     }
+
+    /**
+     * Gérer le couleur
+     * @param {string} couleur 
+     */
 
     changercouleur(couleur){
         this.couleur=couleur;
 
     }
+
+    /**
+     * Montrer le Postit aprés chaque fonction
+     */
 
     affichePostit(){
         let elem = document.getElementById("postit"+this.id)
