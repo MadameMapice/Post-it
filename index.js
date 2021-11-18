@@ -97,3 +97,62 @@ document.body.addEventListener("click",()=>{
 function suprimerPostit(num){
     tabPostit.splice(num,1)
 }
+
+/**
+ * 
+ * @param {string} name  nom du cookie
+ * @param {number} value valeur du cookie
+ * @param {string} days nombre de jours 
+ */
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+/**
+ * 
+ * @param {string} name nom du cookie
+ * @returns 
+ */
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+
+/**
+ * 
+ * @param {string} name nom du cookie
+ */
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+
+setInterval(()=>{
+    let texteCookie =JSON.stringify(tabPostit)
+    //console.log(texteCookie);
+    createCookie("postit",texteCookie,365)
+},1000)
+
+window.addEventListener('load',()=>{
+let textcookie = readCookie("postit")
+let tabCookie = JSON.parse(textcookie)
+for (let index = 0; index < tabCookie.length; index++) {
+   //console.log(tabCookie[index]);
+    tabPostit.push(new Postit(tabCookie[index].x,tabCookie[index].y,tabCookie[index].largeur,tabCookie[index].hauteur,tabCookie[index].couleur,tabCookie[index].texte,tabPostit.length))
+    tabPostit[tabPostit.length-1].affichePostit()
+}
+   
+})
