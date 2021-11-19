@@ -169,6 +169,8 @@ function drag_start(event) {
     (parseInt(style.getPropertyValue("left"), 10) - event.clientX) + ',' + 
     (parseInt(style.getPropertyValue("top"), 10) - event.clientY) + ',' + 
     event.target.id);
+
+    
 }
 
 function drag_over(event) {
