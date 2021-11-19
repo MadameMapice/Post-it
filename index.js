@@ -143,16 +143,47 @@ function eraseCookie(name) {
 setInterval(()=>{
     let texteCookie =JSON.stringify(tabPostit)
     //console.log(texteCookie);
-    createCookie("postit",texteCookie,365)
+    localStorage.setItem("postit",texteCookie,365) //createCookie été repmlacé pour localStorage.setItem
 },1000)
 
 window.addEventListener('load',()=>{
-let textcookie = readCookie("postit")
-let tabCookie = JSON.parse(textcookie)
+let textcookie = localStorage.getItem("postit")  //readCookie été repmlacé pour localStorage.getItem
+let tabCookie = JSON.parse(textcookie) 
 for (let index = 0; index < tabCookie.length; index++) {
    //console.log(tabCookie[index]);
     tabPostit.push(new Postit(tabCookie[index].x,tabCookie[index].y,tabCookie[index].largeur,tabCookie[index].hauteur,tabCookie[index].couleur,tabCookie[index].texte,tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
 }
-   
 })
+
+
+/*Drag and drop*/
+
+/**
+ * Permet de demarrer le Drag and drop
+ * @param {object} event 
+ */
+function drag_start(event) {
+	var style = window.getComputedStyle(event.target, null);
+	event.dataTransfer.setData("text/plain", 
+    (parseInt(style.getPropertyValue("left"), 10) - event.clientX) + ',' + 
+    (parseInt(style.getPropertyValue("top"), 10) - event.clientY) + ',' + 
+    event.target.id);
+}
+
+function drag_over(event) {
+	event.preventDefault();
+	return false;
+}
+
+function drop(event) {
+	var offset = event.dataTransfer.getData("text/plain").split(',');
+	var pinky = document.getElementById(offset[2]); //Id de Post it
+	pinky.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
+	pinky.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
+	event.preventDefault();
+	return false;
+}
+
+ document.body.addEventListener('dragover', drag_over, false);
+ document.body.addEventListener('drop', drop, false);

@@ -82,9 +82,10 @@ class Postit {
         if(elem== null){
             elem=document.createElement("div")
             document.getElementById("tableau").appendChild(elem) // class qu'on a mis dans html
+            elem.addEventListener('dragstart', drag_start, false); //Permet le drag and drop
         }
          
-        
+        elem.draggable=true //Autorise le drag and drop sur en element html
         elem.id="postit"+this.id
         elem.className="postit"
         // style de CSS
@@ -103,26 +104,30 @@ class Postit {
         menu.className="menu"
             elem.appendChild(menu)
         
-            // Pour deplacer
-            let buttom=document.createElement("div")
-            menu.appendChild(buttom)
-            buttom.className="fas fa-expand-arrows-alt"
-            buttom.addEventListener("mousedown",()=>{ 
-                let pointerX=-1;
-                let pointerY=-1;
+        // Pour deplacer
+        // let buttom=document.createElement("div")
+        // menu.appendChild(buttom)
+        // buttom.className="fas fa-expand-arrows-alt"
+        // buttom.addEventListener("mousedown",()=>{ 
+        //     let pointerX=-1;
+        //     let pointerY=-1;
 
-            document.onmousemove=(event)=> {
-                pointerX=event.pageX;
-                pointerY=event.pageY;
-                this.deplacement(pointerX  -this.largeur +120,pointerY -this.hauteur +20)
-                this.affichePostit()
-            }
+        // document.onmousemove=(event)=> {
+        //     pointerX=event.pageX;
+        //     pointerY=event.pageY;
+        //     this.deplacement(pointerX  -this.largeur +120,pointerY -this.hauteur +20)
+        //     this.affichePostit()
+        // }
 
-            })
+        // })
 
-            buttom.addEventListener("mouseup",()=>{
-                document.onmousemove=()=>{}
-            })
+        // buttom.addEventListener("mouseup",()=>{
+        //     document.onmousemove=()=>{}
+        // })
+
+            
+
+
             
              // Pour redimensionement 
 
