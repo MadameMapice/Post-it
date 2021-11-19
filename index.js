@@ -36,15 +36,40 @@ document.querySelector(".pink").addEventListener("mousedown", (event)=>{
 }})
 
 
-document.querySelector(".purple").addEventListener("click", ()=>{
+document.querySelector(".purple").addEventListener("mousedown", ()=>{
     tabPostit.push( new Postit (1000,350,300,300,"lightblue","",tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
-})
 
-document.querySelector(".white").addEventListener("click", ()=>{
+    let pointerX=-1
+    let pointerY=-1
+
+    let affiche= tabPostit[tabPostit.length-1]
+
+    document.onmousemove=(event)=> {
+        pointerX=event.clientX;
+        pointerY=event.clientY;
+
+        affiche.deplacement(pointerX,pointerY)
+        affiche.affichePostit()
+    
+}})
+
+document.querySelector(".white").addEventListener("mousedown", ()=>{
     tabPostit.push( new Postit (1400,550,300,300,"white","",tabPostit.length))
     tabPostit[tabPostit.length-1].affichePostit()
-})
+
+    let pointerX=-1
+    let pointerY=-1
+
+    let affiche= tabPostit[tabPostit.length-1]
+
+    document.onmousemove=(event)=> {
+        pointerX=event.clientX;
+        pointerY=event.clientY;
+
+        affiche.deplacement(pointerX,pointerY)
+        affiche.affichePostit()
+}})
 
 document.addEventListener("keydown", (event)=>{
     if(numID>-1){
